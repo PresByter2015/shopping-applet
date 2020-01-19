@@ -31,3 +31,13 @@ $ npm stop
 
 
 [egg]: https://eggjs.org
+
+### 链接mysql
+
+> npm i --save egg-mysql
+
+- [egg-mysql](https://eggjs.org/zh-cn/tutorials/mysql.html)
+### 业务层
+![image.png](https://i.loli.net/2020/01/19/fotTlFG1bvO8ZmB.png)
+app/service/** 用于编写业务逻辑层，可选，建议使用
+- [service](https://eggjs.org/zh-cn/basics/service.html)
