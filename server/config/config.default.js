@@ -16,7 +16,10 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_1579073707313_2586';
 
   // add your middleware config here
-  config.middleware = [];
+  config.middleware = [ 'log' ];
+  config.log = {
+    match: '/static',
+  };
   // config/config.${env}.js
   config.mysql = {
     // 单数据库信息配置

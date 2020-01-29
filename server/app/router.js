@@ -4,6 +4,7 @@
  * @param {Egg.Application} app - egg application
  */
 module.exports = app => {
-  const { router, controller } = app;
-  router.get('/', controller.home.index);
+  const { router, controller, middleware } = app;
+  router.get('/a', controller.home.index);
+  router.get('/static', middleware.checkTokenIsLogin(), controller.home.index);
 };
