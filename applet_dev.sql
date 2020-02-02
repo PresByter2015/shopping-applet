@@ -4,6 +4,36 @@ IF NOT EXISTS `applet_dev` CHARACTER
 SET 'utf8mb4'
 COLLATE 'utf8mb4_general_ci';
 
+DROP TABLE IF EXISTS `admin_user`;
+CREATE TABLE `admin_user` (
+  `user_id` varchar(32) NOT NULL COMMENT '用户id',
+  `role_id` varchar(32) NOT NULL COMMENT '角色id',
+  `group_id` varchar(32) NOT NULL COMMENT '群组id',
+  `company_id` varchar(32) NOT NULL COMMENT '公司id',
+  `department_id` varchar(32) NOT NULL COMMENT '部门id',
+  `post_id` varchar(32) NOT NULL COMMENT '岗位id',
+  `account` varchar(32) NOT NULL COMMENT '用户账号',
+  `salt` varchar(32) NOT NULL COMMENT '盐',
+  `password` varchar(32) NOT NULL COMMENT '密码(MD5(密码+盐))',
+  `nickname` varchar(20) NOT NULL COMMENT '昵称',
+  `avatar` varchar(100) NOT NULL DEFAULT '' COMMENT '头像',
+  `sex` tinyint(4) NOT NULL DEFAULT '0' COMMENT '性别(0:未知,1:男,2:女)',
+  `phone` varchar(15) NOT NULL DEFAULT '' COMMENT '手机号码',
+  `now_money` decimal(8,2) unsigned DEFAULT '0.00' COMMENT '余额',
+  `integral` decimal(8,2) unsigned DEFAULT '0.00' COMMENT '积分',
+  `last_login_time` timestamp DEFAULT NULL COMMENT '最后登录时间',
+  `last_login_ip` varchar(32) DEFAULT NULL COMMENT '最后登录IP地址',
+  `locked` tinyint(4) NOT NULL COMMENT '状态(0:正常,1:锁定)',
+  `login_count` int(10) unsigned DEFAULT '0' COMMENT '登录次数',
+  `reserved` varchar(32) DEFAULT NULL COMMENT '预留',
+  PRIMARY KEY (`user_id`),
+  UNIQUE (`account`),
+  -- UNIQUE (`nickname`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='管理员用户表';
+INSERT INTO `admin_user` ( user_id, field2,...fieldN )
+                       VALUES
+                       ( value1, value2,...valueN );
+
 DROP TABLE IF EXISTS `ucenter_user`;
 CREATE TABLE `ucenter_user` (
   `user_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '编号',
