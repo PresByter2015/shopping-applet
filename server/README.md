@@ -96,5 +96,5 @@ module.exports = app => {
 };
 ```
 ## id 和 用户密码 md5
-id 和 用户密码 使用的是md5方式加密，生成32位字符串。
+id 和 用户密码 使用的是md5 + salt 盐的方式加密，生成32位字符串。
 - [md5](https://www.npmjs.com/package/md5)
