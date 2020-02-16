@@ -5,7 +5,9 @@ a shopping project
 ## QuickStart
 
 <!-- add docs here for user -->
-
+```bash
+npm init egg --type=simple
+```
 see [egg docs][egg] for more detail.
 
 ### Development
